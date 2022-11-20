@@ -84,15 +84,34 @@ export function reduce<I, R>(iter: Iterable<I>, start: R, func: (cur: R, next: I
   return final;
 }
 
-export function sum(iter: Iterable<number>) {
-  return reduce(iter, 0, (c, n) => c + n);
+export function sum(iterable: Iterable<number>) {
+  return reduce(iterable, 0, (c, n) => c + n);
 }
 
-export function* accum<I, R>(iter: Iterable<I>, start: R, func: (cur: R, next: I) => R): Generator<R> {
+export function* accum<I, R>(iterable: Iterable<I>, start: R, func: (cur: R, next: I) => R): Generator<R> {
   let final = start;
-  for (const i of iter) {
+  for (const i of iterable) {
     final = func(final, i);
     yield final
   }
   yield final;
+}
+
+export function* range(start: number, end?: number, step = 1, inclusive = false) {
+  if (end === undefined) end = Infinity;
+  if (end < start) {
+    if (inclusive) {
+      end--;
+    }
+    for (let i = start; i > end; i -= step) {
+      yield i;
+    }
+  } else {
+    if (inclusive) {
+      end++;
+    }
+    for (let i = start; i < end; i += step) {
+      yield i;
+    }
+  }
 }

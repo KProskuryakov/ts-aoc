@@ -1,7 +1,7 @@
 import { expect } from "chai";
-import { slice, sum } from "./FuncUtils";
+import { slice, sum } from "./IterTools";
 
-describe("util-tests", () => {
+describe("IterTools", () => {
   describe("slice()", () => {
     it("slices ranges forward where the length of the slice is end - start, [start,end)", () => {
       expect(Array.from(slice([0,1,2,3,4,5], 0, 4))).to.deep.equal([0,1,2,3]);

@@ -1,4 +1,4 @@
-import { map2, mapArray, slice, sum, zip2 } from "../../FuncUtils";
+import { map2, mapArray, slice, sum, zip2 } from "../../IterTools";
 
 export function part1(lines: number[]) {
   return sum(map2(lines, slice(lines, 1), (a, b) => a >= b ? 0 : 1));

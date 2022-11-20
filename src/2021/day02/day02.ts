@@ -1,4 +1,4 @@
-import { map, reduce } from "../../FuncUtils";
+import { map, reduce } from "../../IterTools";
 
 type Command = [string, number];
 type State = {hor: number, depth: number}

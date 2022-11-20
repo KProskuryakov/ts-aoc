@@ -1,5 +1,3 @@
-import { map, reduce } from "../../FuncUtils"
-
 export function part1(bitStrings: string[]) {
   const half = bitStrings.length / 2;
 
@@ -29,6 +27,8 @@ function complementBitArray(nums: number[]) {
   return nums.map((v) => v == 1 ? 0 : 1);
 }
 
+
+
 export function part2(bitStrings: string[]) {
   const bitArrays = bitStrings.map(bitStringToInts);
 
@@ -37,8 +37,6 @@ export function part2(bitStrings: string[]) {
 
   return bitArrayToNum(r1) * bitArrayToNum(r2);
 }
-
-
 
 function commonRecurse(bits: number[][], idx: number, commonFunc: (bits: number[][], idx: number) => number): number[] {
   if (bits.length === 1) {
