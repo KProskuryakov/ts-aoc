@@ -23,12 +23,12 @@ export function* slice<A>(a: A[], start: number, end?: number): Generator<A> {
   }
 }
 
-export function max(a: number, ...rest: number[]): number {
-  return reduce(rest, a, (c, n) => { return c > n ? c : n });
+export function max(...rest: number[]): number {
+  return reduce(rest, Number.NEGATIVE_INFINITY, (c, n) => { return c > n ? c : n });
 }
 
-export function min(a: number, ...rest: number[]): number {
-  return reduce(rest, a, (c, n) => { return c < n ? c : n });
+export function min(...rest: number[]): number {
+  return reduce(rest, Number.POSITIVE_INFINITY, (c, n) => { return c < n ? c : n });
 }
 
 export function* map<I, R>(iter: Iterable<I>, func: (input: I) => R): Generator<R> {

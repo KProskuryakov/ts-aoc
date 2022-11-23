@@ -49,3 +49,50 @@ export function slice<T>(a: T[], start: number, end?: number, step = 1): T[] {
   }
   return result;
 }
+
+export function getDefault<T>(arr: T[] | undefined, idx: number, defaultValue: T) {
+  if (arr === undefined || idx < 0 || idx >= arr.length) {
+    return defaultValue;
+  }
+  return arr[idx];
+}
+
+export function map2d<T, U>(arr: T[][], mapfunc: (val: T, row: number, col: number, arr: T[][]) => U): U[][] {
+  return arr.map((line, row) => line.map((v, col) => mapfunc(v, row, col, arr)));
+}
+
+export function reduce2d<T, U>(arr: T[][], initial_value: U, reducefunc: (prev: U, cur: T, row: number, col: number, arr: T[][]) => U): U {
+  let result = initial_value;
+  arr.forEach((line, row) => line.forEach((v, col) => {
+    result = reducefunc(result, v, row, col, arr);
+  }));
+  return result;
+}
+
+export function any2d<T>(arr: T[][], condition: (val: T, row: number, col: number, arr: T[][]) => boolean): boolean {
+  return reduce2d(arr, false, (prev, cur, row, col) => prev || condition(cur, row, col, arr));
+}
+
+export function all2d<T>(arr: T[][], condition: (val: T, row: number, col: number, arr: T[][]) => boolean): boolean {
+  return reduce2d(arr, true, (prev, cur, row, col) => prev && condition(cur, row, col, arr));
+}
+
+export function forEach2d<T>(arr: T[][], func: (val: T, row: number, col: number, arr: T[][]) => void): void {
+  arr.forEach((line, row) => line.forEach((v, col) => {
+    func(v, row, col, arr);
+  }));
+}
+
+export function set2d<T>(arr: T[][], row: number, col: number, val: T): void {
+  if (row >= arr.length || row < 0) return;
+  const line = arr[row];
+  if (col >= line.length || col < 0) return;
+  line[col] = val;
+}
+
+export function update2d<T>(arr: T[][], row: number, col: number, updatefunc: (val: T, row: number, col: number, arr: T[][]) => T): void {
+  if (row >= arr.length || row < 0) return;
+  const line = arr[row];
+  if (col >= line.length || col < 0) return;
+  line[col] = updatefunc(line[col], row, col, arr);
+}

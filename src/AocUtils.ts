@@ -10,5 +10,9 @@ export function intsFromFile(inFile: string) {
 }
 
 export function parseCommaLineToInts(line: string): number[] {
-  return line.split(",").map((v) => parseInt(v));
+  return line.split(",").map(v => parseInt(v));
+}
+
+export function parseCharsToInts(line: string): number[] {
+  return Array.from(line).map(c => Number.parseInt(c));
 }
