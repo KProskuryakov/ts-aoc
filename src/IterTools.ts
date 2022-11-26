@@ -2,6 +2,10 @@ export function zip2<A, B>(a: Iterable<A>, b: Iterable<B>): Generator<[A, B]> {
   return map2(a, b, (a, b) => [a, b]);
 }
 
+export function zip2longest<A, B>(a: Iterable<A>, b: Iterable<B>, defaultA: A, defaultB: B): Generator<[A, B]> {
+  return map2longest(a, b, defaultA, defaultB, (a, b) => [a, b]);
+}
+
 export function iter<A>(i: Iterable<A>): Iterator<A> {
   return i[Symbol.iterator]();
 }
@@ -46,6 +50,26 @@ export function* map2<I, J, R>(iter1: Iterable<I>, iter2: Iterable<J>, func: (in
     yield func(res1.value, res2.value);
     res1 = ai.next();
     res2 = bi.next();
+  }
+}
+
+export function* map2longest<I, J, R>(iter1: Iterable<I>, iter2: Iterable<J>, default1: I, default2: J, func: (input1: I, input2: J) => R): Generator<R> {
+  let ai = iter(iter1);
+  let bi = iter(iter2);
+  let res1 = ai.next();
+  let res2 = bi.next();
+  while (!res1.done || !res2.done) {
+    if (!res1.done && !res2.done) {
+      yield func(res1.value, res2.value);
+      res1 = ai.next();
+      res2 = bi.next();
+    } else if (res2.done) {
+      yield func(res1.value, default2);
+      res1 = ai.next();
+    } else if (res1.done) {
+      yield func(default1, res2.value);
+      res2 = bi.next();
+    }
   }
 }
 

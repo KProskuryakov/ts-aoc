@@ -96,3 +96,18 @@ export function update2d<T>(arr: T[][], row: number, col: number, updatefunc: (v
   if (col >= line.length || col < 0) return;
   line[col] = updatefunc(line[col], row, col, arr);
 }
+
+export function surrounds<T>(arr: T[][], row: number, col: number, updatefunc: (val: T, row: number, col: number, arr: T[][]) => T): void {
+  const range = [-1, 0, 1];
+  for (let r of range) {
+    for (let c of range) {
+      if (r !== 0 || c !== 0) {
+        update2d(arr, row + r, col + c, updatefunc);
+      }
+    }
+  }
+}
+
+export function pair<T>(arr: T[]): [T, T] {
+  return [arr[0], arr[1]];
+}
