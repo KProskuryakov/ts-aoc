@@ -1,4 +1,4 @@
-export function groupby<T>(arr: T[], key?: (value: T, index: number, arr: T[]) => any): T[][] {
+export function groupby<T, K>(arr: T[], key?: (value: T, index: number, arr: T[]) => any): T[][] {
   if (arr.length === 0) {
     return [];
   }
@@ -110,4 +110,8 @@ export function surrounds<T>(arr: T[][], row: number, col: number, updatefunc: (
 
 export function pair<T>(arr: T[]): [T, T] {
   return [arr[0], arr[1]];
+}
+
+export function split<T>(arr: T[], on: T): T[][] {
+  return groupby(arr, v => v !== on).filter(v => getDefault(v, 0, on) !== on);
 }
