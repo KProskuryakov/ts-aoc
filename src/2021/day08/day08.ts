@@ -1,6 +1,6 @@
 import { nextTick } from "process";
 import { sum } from "../../IterTools";
-import { add, subtract } from "../../SetUtils";
+import { union, subtract } from "../../SetUtils";
 
 export function part1(lines: string[]) {
   return sum(lines.map((l) => l.split(" | ")[1])
@@ -32,7 +32,7 @@ function solve(line: string): number {
   const a = subtract(new Set(seven), new Set(one)).values().next().value as string;
 
   const nine = lensix
-    .filter((v) => subtract(new Set(v), add(new Set(four), new Set(seven))).size === 1)[0];
+    .filter((v) => subtract(new Set(v), union(new Set(four), new Set(seven))).size === 1)[0];
 
   const e = subtract(new Set(eight), new Set(nine)).values().next().value as string;
 
@@ -41,7 +41,7 @@ function solve(line: string): number {
   const three = lenfive.filter((v) => subtract(new Set(two), new Set(v)).size === 1)[0];
 
   const g = subtract(new Set(nine), new Set(four + a)).values().next().value as string;
-  const d = subtract(new Set(three), add(new Set(one + a + g))).values().next().value as string;
+  const d = subtract(new Set(three), union(new Set(one + a + g))).values().next().value as string;
   const zero = lensix.filter((v) => !new Set(v).has(d))[0];
 
   strToNum.set(nine, 9);
