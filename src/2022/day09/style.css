@@ -1,0 +1,25 @@
+body {
+  background: black;
+}
+
+div {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+div .space {
+  background: rgb(25, 44, 44);
+}
+
+div .visited {
+  background: rgb(47, 79, 79);
+}
+
+div .head {
+  background: red;
+}
+
+div .rope {
+  background: rgb(226, 53, 53);
+}

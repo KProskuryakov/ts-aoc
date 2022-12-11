@@ -1,5 +1,3 @@
-import { groupCollapsed } from "console";
-
 export function zip2<A, B>(a: Iterable<A>, b: Iterable<B>): Generator<[A, B]> {
   return map2(a, b, (a, b) => [a, b]);
 }
