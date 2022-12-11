@@ -1,4 +1,4 @@
-import { stepToward } from "../../AocUtils";
+import { stepToward } from "../../stepToward";
 
 export function part1(lines: string[]) {
   const dirs = lines.map(l => {

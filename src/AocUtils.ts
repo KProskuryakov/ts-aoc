@@ -16,12 +16,3 @@ export function parseCommaLineToInts(line: string): number[] {
 export function parseCharsToInts(line: string): number[] {
   return Array.from(line).map(c => Number.parseInt(c));
 }
-
-export function stepToward(source: number, dest: number, step = 1) {
-  if (dest > source) {
-    return source + step;
-  } else if (dest < source) {
-    return source - step;
-  }
-  return source;
-}

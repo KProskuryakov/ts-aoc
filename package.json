@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register 'src/**/*.spec.ts'"
+    "test": "mocha -r ts-node/register 'src/**/*.spec.ts'",
+    "dev": "vite",
+    "build": "tsc && vite build"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
     "chai": "^4.3.6",
     "mocha": "^10.1.0",
     "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "vite": "^4.0.0"
   }
 }

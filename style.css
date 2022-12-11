@@ -1,0 +1,29 @@
+body {
+  background: black;
+}
+
+div {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+div.space {
+  background: rgb(30, 53, 53);
+}
+
+div.delim {
+  background: rgb(40, 70, 70);
+}
+
+div.visited {
+  background: rgb(231, 161, 161);
+}
+
+div.head {
+  background: red;
+}
+
+div.rope {
+  background: rgb(192, 74, 74);
+}
