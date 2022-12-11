@@ -37,7 +37,7 @@ export function part2(lines: string[]) {
     return " ";
   });
 
-  const charlines = groupby(chars, (v, i) => Math.floor(i / 40));
+  const charlines = groupby(chars, (_, i) => Math.floor(i / 40));
   for (let line of charlines) {
     console.log(line.join(""));
   }

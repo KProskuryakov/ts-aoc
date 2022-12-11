@@ -1,4 +1,4 @@
-export function groupby<T, K>(arr: T[], key?: (value: T, index: number, arr: T[]) => any): T[][] {
+export function groupby<T>(arr: T[], key?: (value: T, index: number, arr: T[]) => any): T[][] {
   if (arr.length === 0) {
     return [];
   }

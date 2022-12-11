@@ -64,7 +64,10 @@ for (let i = 0; i < 30; i++) {
   divs.push(divline);
 }
 
-fetch("src/2022/day09/input.txt").then(res => {
+// @ts-ignore
+import inputUrl from './input.txt'
+
+fetch(inputUrl).then(res => {
   res.text().then(t => {
     const gen = part2(t.split("\n"));
 

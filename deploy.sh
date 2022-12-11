@@ -5,6 +5,7 @@
 npm run build
 
 # navigate into the build output directory
+mkdir -p dist
 cd dist
 
 # if you are deploying to a custom domain

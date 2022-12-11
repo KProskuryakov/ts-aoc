@@ -7,7 +7,7 @@ export function part1(lines: string[]) {
   const scanned: boolean[][] = [];
   for (let l of trees) {
     const scanline: boolean[] = [];
-    for (let i of l) {
+    for (let _ of l) {
       scanline.push(false);
     }
     scanned.push(scanline);
@@ -125,6 +125,6 @@ export function part2(lines: string[]) {
     return score;
   }
 
-  return trees.map((l, y) => l.map((t, x) => scenicScore(x, y)).reduce((p, c) => max(p, c))).reduce((p, c) => max(p, c));
+  return trees.map((l, y) => l.map((_, x) => scenicScore(x, y)).reduce((p, c) => max(p, c))).reduce((p, c) => max(p, c));
 }
 

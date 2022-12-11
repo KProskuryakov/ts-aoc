@@ -87,7 +87,7 @@ export function all(iter: Iterable<boolean>): boolean {
   return reduce(iter, true, (c, n) => c && n);
 }
 
-export function any<I>(iter: Iterable<boolean>): boolean {
+export function any(iter: Iterable<boolean>): boolean {
   // TODO make this short circuit
   return reduce(iter, false, (c, n) => c || n);
 }

@@ -10,7 +10,6 @@ type Dir = {
   subdirs: Map<string, Dir>
   parent: Dir | undefined
 }
-type FileNode = File | Dir;
 
 export function part1(lines: string[]) {
   const root = generateFileTree(lines);

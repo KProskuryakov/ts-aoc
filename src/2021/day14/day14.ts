@@ -11,7 +11,7 @@ export function part1(lines: string[]) {
     return pair(split);
   }));
 
-  for (let i of range(0, 10)) {
+  for (let _ of range(0, 10)) {
     template = Array.from(zip2longest(slice(template, 0), slice(template, 1), "", "")).flatMap(([fst, snd]) => {
       const newchar = rules.get(fst + snd);
       if (newchar) {
@@ -41,7 +41,7 @@ export function part2(lines: string[]) {
     increment(counts, p[0] + p[1]);
   }
 
-  for (let i of range(0, 40)) {
+  for (let _ of range(0, 40)) {
     let newcounts = new Map<string, number>();
     for (let p of counts.keys()) {
       increment(newcounts, p[0] + rules.get(p)!, counts.get(p)!)
