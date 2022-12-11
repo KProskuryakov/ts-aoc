@@ -143,3 +143,7 @@ export function* range(start: number, end?: number, step = 1, inclusive = false)
     }
   }
 }
+
+export function zipIndex<I>(iterable: Iterable<I>) {
+  return zip2(iterable, range(0));
+}
