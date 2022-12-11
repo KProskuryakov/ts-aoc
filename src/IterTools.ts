@@ -112,6 +112,10 @@ export function sum(iterable: Iterable<number>) {
   return reduce(iterable, 0, (c, n) => c + n);
 }
 
+export function product(iterable: Iterable<number>) {
+  return reduce(iterable, 1, (c, n) => c * n);
+}
+
 export function* accum<I, R>(iterable: Iterable<I>, start: R, func: (cur: R, next: I) => R): Generator<R> {
   let final = start;
   for (const i of iterable) {
