@@ -1,0 +1,11 @@
+body {
+  background: black;
+}
+
+div {
+  position: absolute;
+  width: 18;
+  height: 18;
+  font-size: x-small;
+  color: white;
+}

@@ -16,7 +16,7 @@ describe("2022-11", () => {
         expect(part2(linesFromFile("src/2022/day11/smallinput.txt"))).to.equal(2713310158);
       });
     it("solves the puzzle", () => {
-      expect(part2(linesFromFile("src/2022/day11/input.txt"))).to.equal(0);
+      expect(part2(linesFromFile("src/2022/day11/input.txt"))).to.equal(32059801242);
     });
   });
 });

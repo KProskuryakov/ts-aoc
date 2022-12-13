@@ -9,6 +9,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         day9_2022: resolve(__dirname, 'day9_2022.html'),
         day11_2022: resolve(__dirname, 'day11_2022.html'),
+        day12_2022: resolve(__dirname, 'day12_2022.html'),
       },
     },
   },

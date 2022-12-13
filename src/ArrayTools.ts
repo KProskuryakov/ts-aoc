@@ -97,6 +97,16 @@ export function update2d<T>(arr: T[][], row: number, col: number, updatefunc: (v
   line[col] = updatefunc(line[col], row, col, arr);
 }
 
+export function findIndex2d<T>(arr: T[][], predicate: (val: T, row: number, col: number, arr: T[][]) => boolean): {row: number, col: number}[] {
+  const found: {row: number, col: number}[] = [];
+  forEach2d(arr, (v, r, c, a) => {
+    if (predicate(v, r, c, a)) {
+      found.push({row: r, col: c});
+    }
+  });
+  return found;
+}
+
 export function surrounds<T>(arr: T[][], row: number, col: number, updatefunc: (val: T, row: number, col: number, arr: T[][]) => T): void {
   const range = [-1, 0, 1];
   for (let r of range) {
@@ -106,6 +116,15 @@ export function surrounds<T>(arr: T[][], row: number, col: number, updatefunc: (
       }
     }
   }
+}
+
+export function cardinals<T>(arr: T[][], row: number, col: number): {row: number, col: number}[] {
+  const cards = [{row: row + 1, col: col}, {row: row - 1, col: col}, {row: row, col: col + 1}, {row: row, col: col - 1}];
+  return cards.filter((v) => valid2d(arr, v.row, v.col));
+}
+
+export function valid2d<T>(arr: T[][], row: number, col: number): boolean {
+  return row >= 0 && row < arr.length && col >= 0 && col < arr[row].length;
 }
 
 export function pair<T>(arr: T[]): [T, T] {
