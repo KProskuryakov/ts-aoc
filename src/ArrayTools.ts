@@ -134,3 +134,13 @@ export function pair<T>(arr: T[]): [T, T] {
 export function split<T>(arr: T[], on: T): T[][] {
   return groupby(arr, v => v !== on).filter(v => getDefault(v, 0, on) !== on);
 }
+
+export function combinations2<T>(arr: T[]): T[][] {
+  const res: T[][] = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      res.push([arr[i], arr[j]]);
+    }
+  }
+  return res;
+}
