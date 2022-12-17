@@ -1,5 +1,7 @@
 {
   "extension": ["ts"],
-  "spec": "src/**/*.spec.ts",
-  "require": "ts-node/register"
+  // "spec": "src/**/*.spec.ts",
+  "spec": "src/2022/day17/*.spec.ts",
+  "require": "ts-node/register",
+  "timeout": 999999
 }

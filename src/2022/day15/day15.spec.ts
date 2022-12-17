@@ -12,7 +12,7 @@ describe("2022-15", () => {
     });
   });
   describe("part 2", () => {
-    it("does the thing with the small input 1", () => {
+    it("does the thing with the small input", () => {
         expect(part2(linesFromFile("src/2022/day15/smallinput.txt"), 20)).to.equal(56000011);
       });
     it("solves the puzzle", () => {
