@@ -13,7 +13,7 @@
                 "--colors",
                 "-r",
                 "ts-node/register",
-                "src/**/*.spec.ts"
+                "${fileDirname}/*.spec.ts"
             ],
             "internalConsoleOptions": "openOnSessionStart",
             "name": "Mocha Tests",
